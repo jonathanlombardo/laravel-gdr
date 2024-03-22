@@ -16,19 +16,30 @@ class ItemSeeder extends Seeder
    */
   public function run()
   {
+    // open file and read keys from first line
     $file = fopen(__DIR__ . "/../csv/items.csv", "r");
-
     $keys = fgetcsv($file);
 
+    // read all csv line
     while ($item_data = fgetcsv($file)) {
-      $item_data = fgetcsv($file);
-      $item = new Item();
-      foreach ($keys as $index => $key) {
-        if (Schema::hasColumn("items", $key)) {
-          $item->$key = $item_data[$index];
-        }
+
+      // check if line is empty
+      $empty_line = true;
+      foreach ($item_data as $data) {
+        if ($data)
+          $empty_line = false;
       }
-      $item->save();
+
+      // gen and fill new item if not empty line
+      if (!$empty_line) {
+        $item = new Item();
+        foreach ($keys as $index => $key) {
+          if (Schema::hasColumn("items", $key)) {
+            $item->$key = $item_data[$index];
+          }
+        }
+        $item->save();
+      }
     }
   }
 }
