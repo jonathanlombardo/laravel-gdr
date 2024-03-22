@@ -7,10 +7,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Name</th>
-                    <th>Description</th>
                     <th>Slug</th>
+                    <th>Description</th>
                     <th>Category</th>
                     <th>Type</th>
                     <th>Weight</th>
@@ -20,9 +19,9 @@
             <tbody>
                 @forelse ($items as $item)
                     <tr>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->description }}</td>
+                        <th>{{ $item->name }}</td>
                         <td>{{ $item->slug }}</td>
+                        <td>{{ $item->description }}</td>
                         <td>{{ $item->category }}</td>
                         <td>{{ $item->type }}</td>
                         <td>{{ $item->weight }}</td>
