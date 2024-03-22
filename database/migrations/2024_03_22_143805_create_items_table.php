@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 30)->unique();
             $table->string('description')->nullable();
             $table->string('slug', 20)->unique();
-            $table->string('category', 20);
+            $table->string('category', 40);
             $table->string('type', 30);
             $table->string('weight', 9);
             $table->string('cost', 9);
