@@ -4,7 +4,7 @@
     <span>NewProject Header</span>
     <nav>
       <ul class="d-flex align-items-center gap-3">
-        <li><a href="#">Link</a></li>
+        <li><a href="{{route('items')}}">Item</a></li>
         <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
       </ul>
