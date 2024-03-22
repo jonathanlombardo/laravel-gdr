@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Item;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class ItemSeeder extends Seeder
 {
@@ -16,25 +17,18 @@ class ItemSeeder extends Seeder
   public function run()
   {
     $file = fopen(__DIR__ . "/../csv/items.csv", "r");
-    $first_line = true;
 
-    while (!feof($file)) {
+    $keys = fgetcsv($file);
 
+    while ($item_data = fgetcsv($file)) {
       $item_data = fgetcsv($file);
-      if (!$first_line && $item_data) {
-
-        $item = new Item();
-        $item->name = $item_data[0];
-        $item->slug = $item_data[1];
-        $item->type = $item_data[2];
-        $item->category = $item_data[3];
-        $item->weight = $item_data[4];
-        $item->cost = $item_data[5];
-        $item->save();
+      $item = new Item();
+      foreach ($keys as $index => $key) {
+        if (Schema::hasColumn("items", $key)) {
+          $item->$key = $item_data[$index];
+        }
       }
-
-      $first_line = false;
-
+      $item->save();
     }
   }
 }
