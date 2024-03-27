@@ -13,17 +13,15 @@
       </ul>
       <p class="mt-3">Descrizione:</p>
       <p>{{$character->description}}</p>
-      <a href="{{route('characters.edit', $character)}}" class="btn btn-success">Modifica Il Personaggio</a>
+      <a href="{{route('characters.edit', $character)}}" class="btn btn-success">Modifica {{$character->name}}</a>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleting-modal-{{$character->id}}">
+       Elimina {{$character->name}}
+      </button>
     </div>
   </section>
 @endsection
 
 @section('modals')
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleting-modal-1">
-    Launch demo modal
-  </button>
-  <!-- Button trigger modal -->
 
 
   @include('layouts.partials.modal_destroy')
