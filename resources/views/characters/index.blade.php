@@ -3,6 +3,9 @@
 
 @section('maincontent')
     <h1 class="text-center mt-5">Character</h1>
+    <div class="text-center">
+      <a href="{{route('characters.create')}}" class="btn btn-primary">Nuovo Character</a>
+    </div>
     <div class="container p-5">
         <table class="table">
             <thead>
