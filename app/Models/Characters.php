@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Characters extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = [
+    "name",
+    "description",
+    "attack",
+    "defence",
+    "speed",
+    "life",
+  ];
 }
