@@ -1,21 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('main-content')
+@section('maincontent')
   <section>
     <div class="container py-4">
-      <h1> {{ $character->name }} </h1>
-      <a href="{{ route('characters.index') }}" class="btn btn-primary">Go Back to characters' List </a>
-      {{-- <a href="{{ route('characters.edit', $character) }}" class="btn btn-success">Edit character</a> --}}
-      <span class="h4"><b>Description: </b></span>
+
+      <ul>
+        <li><b>Attack: </b><span class="fs-6">{{$character->attack}}</span></li>
+        <li><b>Defence: </b><span class="fs-6">{{$character->defence}}</span></li>
+        <li><b>Seed: </b><span class="fs-6">{{$character->speed}}</span></li>
+        <li><b>Life: </b><span class="fs-6">{{$character->life}}</span></li>
+      </ul>
+      <p class="mt-3">Description:</p>
       <p>{{$character->description}}</p>
-      <hr>
-      <span class="h4"><b>Attack: </b><span class="fs-6">{{$character->attack}}</span></span>
-      <br>
-      <span class="h4"><b>Defence: </b><span class="fs-6">{{$character->defence}}</span></span>
-      <br>
-      <span class="h4"><b>Seed: </b><span class="fs-6">{{$character->speed}}</span></span>
-      <br>
-      <span class="h4"><b>Life: </b><span class="fs-6">{{$character->life}}</span></span>
+      
     </div>
   </section>
 @endsection
