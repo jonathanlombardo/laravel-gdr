@@ -19,5 +19,7 @@
     @include('layouts.partials.footer')
   </div>
 
+  @yield('modals')
+  @yield('script')
 </body>
 </html>

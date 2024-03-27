@@ -83,8 +83,9 @@ class CharactersController extends Controller
    *
    * @param  \App\Models\Characters  $characters
    */
-  public function destroy(Characters $characters)
+  public function destroy(Characters $character)
   {
-    //
+    $character->delete();
+    return redirect()->route('characters.index');
   }
 }
