@@ -17,3 +17,14 @@
     </div>
   </section>
 @endsection
+
+@section('modals')
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleting-modal-1">
+    Launch demo modal
+  </button>
+  <!-- Button trigger modal -->
+
+
+  @include('layouts.partials.modal_destroy')
+@endsection
