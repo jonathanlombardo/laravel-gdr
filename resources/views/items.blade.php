@@ -2,18 +2,18 @@
 
 
 @section('maincontent')
-    <h1 class="text-center mt-5">Items</h1>
+    <h1 class="text-center mt-5">Strumenti</h1>
     <div class="container p-5">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Nome</th>
                     <th>Slug</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Type</th>
-                    <th>Weight</th>
-                    <th>Cost</th>
+                    <th>Descrizione</th>
+                    <th>Categoria</th>
+                    <th>Tipo</th>
+                    <th>Peso</th>
+                    <th>Costo</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="100%">Item Not Found</td>
+                        <td colspan="100%">Non è stato trovato nessun Strumento</td>
                     </tr>
                 @endforelse
             </tbody>
