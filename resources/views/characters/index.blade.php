@@ -33,7 +33,10 @@
                         <td>{{ $character->speed }}</td>
                         <td>{{ $character->life }}</td>
                         <td><a href="{{ route('characters.show', $character) }}"
-                                class="btn btn-primary"><i class="fa-solid fa-eye"></i></a></td>
+                                class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#deleting-modal-{{$character->id}}"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        
                     </tr>
                 @empty
                     <tr>
@@ -47,12 +50,7 @@
 @endsection
 
 @section('modals')
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleting-modal-1">
-    Launch demo modal
-  </button>
-  <!-- Button trigger modal -->
-
+ 
 
   @foreach ($characters as $character)
   @include('layouts.partials.modal_destroy')
