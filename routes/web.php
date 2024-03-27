@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CharactersController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'items');
 Route::get('/items', [ItemController::class, 'index'])->name('items');
-Route::resource('comics', ComicController::class);
+Route::resource('characters', CharactersController::class);
