@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Characters;
 use Illuminate\Http\Request;
 
-class CharactersController extends Controller
+class _CharactersController extends Controller
 {
   /**
    * Display a listing of the resource.
