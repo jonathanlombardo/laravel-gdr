@@ -27,7 +27,7 @@
                 @forelse ($characters as $character)
                     <tr class="text-center">
                         <th>{{ $character->name }}</td>
-                        <td>{{ $character->description }}</td>
+                        <td>{{ $character->get_description() }}</td>
                         <td>{{ $character->attack }}</td>
                         <td>{{ $character->defence }}</td>
                         <td>{{ $character->speed }}</td>
