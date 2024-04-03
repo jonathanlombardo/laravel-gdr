@@ -32,11 +32,17 @@
                         <td>{{ $character->defence }}</td>
                         <td>{{ $character->speed }}</td>
                         <td>{{ $character->life }}</td>
-                        <td><a href="{{ route('admin.characters.show', $character) }}"
-                                class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#deleting-modal-{{$character->id}}"><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        
+                        <td>
+
+                            <a href="{{ route('admin.characters.show', $character) }}" class="btn btn-primary"><i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('admin.characters.edit', $character) }}" class="btn btn-warning"><i
+                                    class="fa-solid fa-user-pen"></i></a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleting-modal-{{ $character->id }}"><i
+                                    class="fa-solid fa-trash"></i></button>
+                        </td>
+
                     </tr>
                 @empty
                     <tr>
@@ -50,9 +56,7 @@
 @endsection
 
 @section('modals')
- 
-
-  @foreach ($characters as $character)
-  @include('layouts.partials.modal_destroy')
-  @endforeach
+    @foreach ($characters as $character)
+        @include('layouts.partials.modal_destroy')
+    @endforeach
 @endsection
