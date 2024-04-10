@@ -42,7 +42,7 @@ class TypeController extends Controller
     
     $type->save();
 
-    return redirect()->route('admin.types.show', compact('type'));
+    return redirect()->route('admin.types.show', $type);
   }
 
     /**
@@ -77,7 +77,7 @@ class TypeController extends Controller
 
     $type->update($data);
 
-    return redirect()->route('admin.types.show', compact('type'));
+    return redirect()->route('admin.types.show', $type);
   }
 
   /**
