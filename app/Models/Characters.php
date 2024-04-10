@@ -19,6 +19,11 @@ class Characters extends Model
     "intelligence",
   ];
 
+
+  public function items()
+  {
+    return $this->belongsToMany(Item::class);
+  }
   public function get_description($n_chars = 75)
   {
     return ($n_chars < strlen($this->description)) ? substr($this->description, 0, $n_chars) . '...' : $this->description;

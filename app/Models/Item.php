@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  public function characters()
+  {
+    return $this->belongsToMany(Characters::class);
+  }
 }
