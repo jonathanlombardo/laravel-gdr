@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use App\Models\Characters;
 use Illuminate\Http\Request;
 
@@ -18,14 +19,15 @@ class CharactersController extends Controller
     $characters = Characters::paginate();
     return view('admin.characters.index', compact('characters'));
   }
-
+  
   /**
    * Show the form for creating a new resource.
    *
    */
   public function create()
   {
-    return view('admin.characters.create');
+    $types = Type::all();
+    return view('admin.characters.create', compact('types'));
   }
 
   /**
@@ -61,7 +63,8 @@ class CharactersController extends Controller
    */
   public function edit(Characters $character)
   {
-    return view('admin.characters.edit', compact('character'));
+    $types = Type::all();
+    return view('admin.characters.edit', compact('character', 'types'));
   }
 
   /**

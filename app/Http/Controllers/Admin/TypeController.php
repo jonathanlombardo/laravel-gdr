@@ -34,7 +34,15 @@ class TypeController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $data = $request->all();
+    
+    $type = new Type;
+    
+    $type->fill($data);
+    
+    $type->save();
+
+    return redirect()->route('admin.types.show', $type);
   }
 
     /**
@@ -65,7 +73,11 @@ class TypeController extends Controller
    */
   public function update(Request $request, Type $type)
   {
-    //
+    $data = $request->all();
+
+    $type->update($data);
+
+    return redirect()->route('admin.types.show', $type);
   }
 
   /**
@@ -75,6 +87,8 @@ class TypeController extends Controller
    */
   public function destroy(Type $type)
   {
-    //
+    $type->delete();
+    
+    return redirect()->route('admin.types.index');
   }
 }
