@@ -4,28 +4,28 @@
     <section>
         <div class="container py-4">
 
-            <a href="{{ route('admin.characters.index') }}" class="btn btn-primary mb-3">Back to home!</a>
+            <a href="{{ route('admin.types.index') }}" class="btn btn-primary mb-3">Back to home!</a>
 
-            <ul>
-                <li><b>Nome: </b><span class="fs-6">{{ $character->name }}</span></li>
-                <li><b>Attacco: </b><span class="fs-6">{{ $character->attack }}</span></li>
-                <li><b>Difesa: </b><span class="fs-6">{{ $character->defence }}</span></li>
-                <li><b>Velocità: </b><span class="fs-6">{{ $character->speed }}</span></li>
-                <li><b>Intelligenza: </b><span class="fs-6">{{ $character->intelligence }}</span></li>
-                <li><b>Punti Vita: </b><span class="fs-6">{{ $character->life }}</span></li>
-            </ul>
-            <p class="mt-3">Descrizione:</p>
-            <p>{{ $character->description }}</p>
-            <a href="{{ route('admin.characters.edit', $character) }}" class="btn btn-success">Modifica
-                {{ $character->name }}</a>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                data-bs-target="#deleting-modal-{{ $character->id }}">
-                Elimina {{ $character->name }}
-            </button>
+            <div class="d-flex gap-3">
+                <img src="{{ $type->image }}" alt="{{ $type->name }} image">
+                <div>
+                    <h1>{{ $type->name }}</h1>
+                    <p class="mt-3">Descrizione:</p>
+                    <p>{{ $type->description }}</p>
+                    <a href="{{ route('admin.types.edit', $type) }}" class="btn btn-success">Modifica
+                        {{ $type->name }}</a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#deleting-modal-{{ $type->id }}">
+                        Elimina {{ $type->name }}
+                    </button>
+                </div>
+
+            </div>
+
         </div>
     </section>
 @endsection
 
 @section('modals')
-    @include('layouts.partials.modal_destroy')
+    @include('layouts.partials.type_modal_destroy')
 @endsection
