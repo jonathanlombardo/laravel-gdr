@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([ItemSeeder::class, ConfigCharacterSeeder::class, TypeSeeder::class]);
+        $this->call([ItemSeeder::class,  TypeSeeder::class, ConfigCharacterSeeder::class]);
     }
 }
