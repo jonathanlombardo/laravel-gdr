@@ -28,4 +28,8 @@ class Characters extends Model
   {
     return ($n_chars < strlen($this->description)) ? substr($this->description, 0, $n_chars) . '...' : $this->description;
   }
+
+  public function type(){
+    return $this->belongsTo(Type::class);
+  }
 }
