@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\CharactersController;
@@ -39,6 +40,8 @@ Route::middleware('auth')
 ->group(function(){
     Route::get('/items', [ItemController::class, 'index'])->name('items');
     Route::resource('characters', CharactersController::class);
+    Route::resource('types', TypeController::class);
+    
 });
 
 require __DIR__.'/auth.php';
