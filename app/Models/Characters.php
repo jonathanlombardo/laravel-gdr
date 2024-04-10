@@ -12,7 +12,7 @@ class Characters extends Model
   protected $fillable = [
     "name",
     "description",
-    "attack",
+    "strength",
     "defence",
     "speed",
     "life",
@@ -29,7 +29,8 @@ class Characters extends Model
     return ($n_chars < strlen($this->description)) ? substr($this->description, 0, $n_chars) . '...' : $this->description;
   }
 
-  public function type(){
+  public function type()
+  {
     return $this->belongsTo(Type::class);
   }
 }
