@@ -19,6 +19,7 @@
                     <th>Attacco</th>
                     <th>Difesa</th>
                     <th>Velocità</th>
+                    <th>Intelligenza</th>
                     <th>Punti Vita</th>
                     <th>Dettagli Personaggio</th>
                 </tr>
@@ -31,6 +32,7 @@
                         <td>{{ $character->attack }}</td>
                         <td>{{ $character->defence }}</td>
                         <td>{{ $character->speed }}</td>
+                        <td>{{ $character->intelligence }}</td>
                         <td>{{ $character->life }}</td>
                         <td>
 

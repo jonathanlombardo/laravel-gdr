@@ -11,6 +11,7 @@
                 <li><b>Attacco: </b><span class="fs-6">{{ $character->attack }}</span></li>
                 <li><b>Difesa: </b><span class="fs-6">{{ $character->defence }}</span></li>
                 <li><b>Velocità: </b><span class="fs-6">{{ $character->speed }}</span></li>
+                <li><b>Intelligenza: </b><span class="fs-6">{{ $character->intelligence }}</span></li>
                 <li><b>Punti Vita: </b><span class="fs-6">{{ $character->life }}</span></li>
             </ul>
             <p class="mt-3">Descrizione:</p>
