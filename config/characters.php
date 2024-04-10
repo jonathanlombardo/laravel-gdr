@@ -1,6 +1,6 @@
 <?php
-return [
-    'characters' => [
+return
+    [
         [
             'name' => 'Arthur',
             'description' => 'A brave knight with a strong sense of justice.',
@@ -9,7 +9,7 @@ return [
             'speed' => 8,
             'intelligence' => 7,
             'life' => 100,
-            'type_id' => 1
+            // 'type_id' => 1
         ],
         [
             'name' => 'Elena',
@@ -19,7 +19,7 @@ return [
             'speed' => 9,
             'intelligence' => 6,
             'life' => 90,
-            'type_id' => 2
+            // 'type_id' => 2
         ],
         [
             'name' => 'Gareth',
@@ -29,7 +29,7 @@ return [
             'speed' => 5,
             'intelligence' => 4,
             'life' => 110,
-            'type_id' => 3
+            // 'type_id' => 3
         ],
         [
             'name' => 'Sylvia',
@@ -39,7 +39,7 @@ return [
             'speed' => 7,
             'intelligence' => 10,
             'life' => 80,
-            'type_id' => 4
+            // 'type_id' => 4
         ],
         [
             'name' => 'Liam',
@@ -49,7 +49,7 @@ return [
             'speed' => 12,
             'intelligence' => 5,
             'life' => 95,
-            'type_id' => 5
+            // 'type_id' => 5
         ],
         [
             'name' => 'Isabella',
@@ -59,7 +59,7 @@ return [
             'speed' => 6,
             'intelligence' => 11,
             'life' => 85,
-            'type_id' => 6
+            // 'type_id' => 6
         ],
         [
             'name' => 'Oscar',
@@ -69,7 +69,7 @@ return [
             'speed' => 6,
             'intelligence' => 5,
             'life' => 105,
-            'type_id' => 7
+            // 'type_id' => 7
         ],
         [
             'name' => 'Aria',
@@ -79,7 +79,7 @@ return [
             'speed' => 5,
             'intelligence' => 12,
             'life' => 75,
-            'type_id' => 8
+            // 'type_id' => 8
         ],
         [
             'name' => 'Victor',
@@ -89,7 +89,7 @@ return [
             'speed' => 7,
             'intelligence' => 6,
             'life' => 95,
-            'type_id' => 9
+            // 'type_id' => 9
         ],
         [
             'name' => 'Luna',
@@ -99,7 +99,7 @@ return [
             'speed' => 7,
             'intelligence' => 9,
             'life' => 90,
-            'type_id' => 10
+            // 'type_id' => 10
         ],
         [
             'name' => 'Xander',
@@ -109,7 +109,7 @@ return [
             'speed' => 11,
             'intelligence' => 6,
             'life' => 85,
-            'type_id' => 11
+            // 'type_id' => 11
         ],
         [
             'name' => 'Sophia',
@@ -119,7 +119,7 @@ return [
             'speed' => 6,
             'intelligence' => 12,
             'life' => 80,
-            'type_id' => 12
+            // 'type_id' => 12
         ],
         [
             'name' => 'Maximus',
@@ -129,7 +129,7 @@ return [
             'speed' => 6,
             'intelligence' => 4,
             'life' => 110,
-            'type_id' => 10
+            // 'type_id' => 10
         ],
-    ],
-];
+    ];
+
