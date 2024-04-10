@@ -11,6 +11,7 @@ class Characters extends Model
 
   protected $fillable = [
     "name",
+    "type_id",
     "description",
     "strength",
     "defence",
