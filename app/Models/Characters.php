@@ -16,9 +16,11 @@ class Characters extends Model
     "defence",
     "speed",
     "life",
+    "intelligence",
   ];
 
-  public function get_description($n_chars = 75){
-    return ($n_chars < strlen($this->description)) ? substr($this->description, 0, $n_chars ). '...' : $this->description; 
+  public function get_description($n_chars = 75)
+  {
+    return ($n_chars < strlen($this->description)) ? substr($this->description, 0, $n_chars) . '...' : $this->description;
   }
 }
