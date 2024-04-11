@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ItemController;
-use App\Http\Controllers\Admin\CharactersController;
+use App\Http\Controllers\Admin\CharacterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,30 +18,30 @@ use App\Http\Controllers\Admin\CharactersController;
 */
 
 Route::get('/', function () {
-    return view('home');
+  return view('home');
 })->name('home');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+  return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')
-->group(function () {
+  ->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    
-});
+
+  });
 
 Route::middleware('auth')
-->name('admin.')
-->prefix('admin')
-->group(function(){
+  ->name('admin.')
+  ->prefix('admin')
+  ->group(function () {
     Route::get('/items', [ItemController::class, 'index'])->name('items');
-    Route::resource('characters', CharactersController::class);
+    Route::resource('characters', CharacterController::class);
     Route::resource('types', TypeController::class);
-    
-});
 
-require __DIR__.'/auth.php';
+  });
+
+require __DIR__ . '/auth.php';

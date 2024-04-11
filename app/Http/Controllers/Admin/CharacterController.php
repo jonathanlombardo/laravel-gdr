@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Type;
-use App\Models\Characters;
+use App\Models\Character;
 use Illuminate\Http\Request;
 
-class CharactersController extends Controller
+class CharacterController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -16,10 +16,10 @@ class CharactersController extends Controller
    */
   public function index()
   {
-    $characters = Characters::paginate();
+    $characters = Character::paginate();
     return view('admin.characters.index', compact('characters'));
   }
-  
+
   /**
    * Show the form for creating a new resource.
    *
@@ -39,7 +39,7 @@ class CharactersController extends Controller
   {
     $datas = $request->all();
 
-    $character = new Characters;
+    $character = new Character;
     $character->fill($datas);
     $character->save();
 
@@ -49,9 +49,9 @@ class CharactersController extends Controller
   /**
    * Display the specified resource.
    *
-   * @param  \App\Models\Characters  $characters
+   * @param  \App\Models\Character  $characters
    */
-  public function show(Characters $character)
+  public function show(Character $character)
   {
     return view('admin.characters.show', compact('character'));
   }
@@ -59,9 +59,9 @@ class CharactersController extends Controller
   /**
    * Show the form for editing the specified resource.
    *
-   * @param  \App\Models\Characters  $characters
+   * @param  \App\Models\Character  $characters
    */
-  public function edit(Characters $character)
+  public function edit(Character $character)
   {
     $types = Type::all();
     return view('admin.characters.edit', compact('character', 'types'));
@@ -71,9 +71,9 @@ class CharactersController extends Controller
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\Characters  $characters
+   * @param  \App\Models\Character  $characters
    */
-  public function update(Request $request, Characters $character)
+  public function update(Request $request, Character $character)
   {
     $datas = $request->all();
 
@@ -85,9 +85,9 @@ class CharactersController extends Controller
   /**
    * Remove the specified resource from storage.
    *
-   * @param  \App\Models\Characters  $characters
+   * @param  \App\Models\Character  $characters
    */
-  public function destroy(Characters $character)
+  public function destroy(Character $character)
   {
     $character->delete();
     return redirect()->route('admin.characters.index');

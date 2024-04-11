@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Characters;
+use App\Models\Character;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +17,7 @@ class ConfigCharacterSeeder extends Seeder
   {
     $datas = config('data')['characters'];
     foreach ($datas as $data) {
-      $character = new Characters;
+      $character = new Character;
       $character->fill($data);
       $character->save();
 
