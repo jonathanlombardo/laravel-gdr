@@ -2,7 +2,7 @@
 
 
 @section('maincontent')
-    <h1 class="text-center mt-5">Edit Character</h1>
+  <h1 class="text-center mt-5">Modifica Personaggio</h1>
     <div class="container p-5">
         <form action="{{ route('admin.characters.update', $character) }}" method="POST">
             @csrf
