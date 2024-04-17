@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('characters', [CharacterController::class, 'index']);
-Route::get('challenge', [CharacterController::class, 'generateChallenge']);
+Route::post('challenge', [CharacterController::class, 'generateChallenge']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

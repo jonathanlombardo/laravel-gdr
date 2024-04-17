@@ -24,9 +24,11 @@ class CharacterController extends Controller
         ]);
     }
 
-    public function generateChallenge(){
+    public function generateChallenge(Request $request){
 
-        $id = 5;
+        $data = $request->all();
+
+        $id = $data['id'];
 
         // select of user card
         $character1 = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->where('id', $id)->first()->toArray();
