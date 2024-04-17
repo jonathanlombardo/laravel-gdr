@@ -29,6 +29,11 @@ class CharacterController extends Controller
     }
 
     public function generateUserCard($id){
+        $character = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->where('id', $id)->paginate(10);
         
+        return response()->json([
+            'success' => true,
+            'characters' => $character
+        ]);
     }
 }
