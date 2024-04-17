@@ -25,7 +25,6 @@ class CharacterController extends Controller
     }
 
     public function generateChallenge(Request $request){
-
         $data = $request->all();
 
         $id = $data['id'];
@@ -34,31 +33,51 @@ class CharacterController extends Controller
         $character1 = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->where('id', $id)->first()->toArray();
         
         // select of computer card
-        $characters = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->get()->toArray();
+        $characters = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->where('id', '<>', $id)->get()->toArray();
         $character2 = $characters[rand(0, count($characters) - 1)];
 
+        // user stats
         $user =
-            [ $character1['strength'], $character1['defence'], $character1['speed'], $character1['intelligence']];
+            [ 
+                'strength' => $character1['strength'], 
+                'defence' => $character1['defence'], 
+                'speed' => $character1['speed'], 
+                'intelligence' => $character1['intelligence']
+            ];
 
-        
-        $computer = [ $character2['strength'], $character2['defence'], $character2['speed'], $character2['intelligence']];
+        // computer stats
+        $computer =
+            [ 
+                'strength' => $character2['strength'], 
+                'defence' => $character2['defence'], 
+                'speed' => $character2['speed'], 
+                'intelligence' => $character2['intelligence']
+            ];
 
+        // fight array with all the results 
         $fight = [];
+
+        // count of challenges won
         $user_count = 0;
         $computer_count = 0;
 
+        // final winner
+        $winner = '';
+
+        // fight cycle
         foreach( $computer as $key => $character_stats){
  
+            // single challenge array
             $challenge = [
                 'type' => $key,
-                'values' => $computer[$key] . 'vs' . $user[$key],
+                'values' => $character_stats . 'vs' . $user[$key],
                 'winner' => '',
             ];
 
-            if($computer[$key] > $user[$key]){
+            if($character_stats > $user[$key]){
                 $challenge['winner'] = $character2['name'];
                 $computer_count = $computer_count + 1;
-            } else if($computer[$key] < $user[$key]){
+            } else if($character_stats < $user[$key]){
                 $challenge['winner'] = $character1['name'];
                 $user_count = $user_count + 1;
             } else {
@@ -68,10 +87,7 @@ class CharacterController extends Controller
             array_push($fight, $challenge);
         }
 
-    
-
-        $winner = '';
-
+        // find the winner
         if($user_count>$computer_count){
             $winner = $character1['name'];
         } else if ($user_count < $computer_count){
@@ -80,7 +96,7 @@ class CharacterController extends Controller
             $winner = 'Pareggio';
         }
 
-
+        // api response
         return response()->json([
             'success' => true,
             'user' => $character1,
