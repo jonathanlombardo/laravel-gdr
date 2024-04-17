@@ -29,11 +29,20 @@ class CharacterController extends Controller
     }
 
     public function generateUserCard($id){
-        $character = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->where('id', $id)->paginate(10);
+        $character1 = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->where('id', $id)->first();
         
+
+        $characters = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->get()->toArray();
+        
+        
+        $character2 = $characters[rand(0, count($characters) - 1)];
+
+        
+
         return response()->json([
             'success' => true,
-            'characters' => $character
+            'user' => $character1,
+            'computer' => $character2,
         ]);
     }
 }
