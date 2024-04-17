@@ -16,11 +16,11 @@ class CharacterController extends Controller
     public function index()
     {
 
-        $character = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image')->paginate(10);
+        $characters = Character::select('id', 'name', 'type_id', 'strength', 'defence', 'speed', 'life', 'intelligence')->with('type:id,image,name')->paginate(10);
         
         return response()->json([
             'success' => true,
-            'characters' => $character
+            'characters' => $characters
         ]);
     }
 
@@ -28,7 +28,7 @@ class CharacterController extends Controller
         
     }
 
-    public function generateUserCard(){
-
+    public function generateUserCard($id){
+        
     }
 }
