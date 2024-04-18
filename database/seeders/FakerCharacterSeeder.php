@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 
 use Faker\Generator as Faker;
 
-class CharacterSeeder extends Seeder
+class FakerCharacterSeeder extends Seeder
 {
   /**
    * Run the database seeds.
