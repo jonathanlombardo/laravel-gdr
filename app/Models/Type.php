@@ -9,6 +9,7 @@ class Type extends Model
 {
   use HasFactory;
 
+  protected $appends = ['imgUrl'];
   protected $fillable = [
     'name',
     'image',
@@ -23,5 +24,10 @@ class Type extends Model
   public function get_description($n_chars = 75)
   {
     return ($n_chars < strlen($this->description)) ? substr($this->description, 0, $n_chars) . '...' : $this->description;
+  }
+
+  public function getImgUrlAttribute()
+  {
+    return asset("storage$this->image");
   }
 }

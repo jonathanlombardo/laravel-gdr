@@ -25,7 +25,7 @@ class TypeSeeder extends Seeder
 
       $type = new Type;
       $type->name = $type_data[0];
-      $type->image = Vite::asset("resources/$type_data[1]");
+      $type->image = $type_data[1];
       $type->description = $type_data[2];
 
       $type->save();
